@@ -1,18 +1,33 @@
-import { CHANGE_SEARCH, ActionTypes, IIssues } from "../actions/types";
+import {
+  SEARCH_NEW_ISSUE,
+  ISSUES_FOUND,
+  ActionTypes,
+  IIssuesState,
+} from "../actions/types";
 
-export const defaultState: IIssues = {
-  title: "Hola mundo",
+export const defaultState: IIssuesState = {
+  isSearching: false,
+  newIssue: "",
+  issues: [],
 };
 
 export const issuesReducer = (
-  state: IIssues = defaultState,
+  state: IIssuesState = defaultState,
   action: ActionTypes
 ) => {
   switch (action.type) {
-    case CHANGE_SEARCH: {
+    case SEARCH_NEW_ISSUE: {
       return {
         ...state,
-        title: action.payload,
+        newIssue: action.payload,
+        isSearching: true,
+      };
+    }
+    case ISSUES_FOUND: {
+      return {
+        ...state,
+        isSearching: false,
+        issues: action.payload,
       };
     }
     default: {

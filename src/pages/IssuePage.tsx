@@ -1,24 +1,27 @@
 import React from "react";
+import { HeaderCmp } from "../components/Header.cmp";
 import { useParams } from "react-router-dom";
-import AppBar from "@material-ui/core/AppBar";
+import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles((theme) => ({
+  conteiner: {
+    paddingBottom: 65,
+    paddingTop: 80,
+  },
+}));
 
 export const IssuePage = () => {
   const { issueId } = useParams();
+  const classes = useStyles();
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar>
-        <Toolbar>
-          <Typography variant="h6" color="inherit">
-            Header issue page #{issueId}
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Container maxWidth="md">Aqui va el cuerpo de la busqueda</Container>
+      <HeaderCmp title="Problema tal" issueId={issueId} useBack={true} />
+      <Container maxWidth="md" className={classes.conteiner}>
+        Aqui va el cuerpo de la busqueda
+      </Container>
     </React.Fragment>
   );
 };
