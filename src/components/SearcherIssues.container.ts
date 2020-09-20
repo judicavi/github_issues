@@ -7,7 +7,6 @@ import { IIssuesState } from "../store/actions/types";
 import { IPropsSearchCmp, IDispatchSearchCmp } from "./types";
 
 const mapStateToProps = (state: IIssuesState): IPropsSearchCmp => {
-  console.log(state);
   return {
     isSearching: state.isSearching,
   };

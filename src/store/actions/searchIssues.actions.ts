@@ -1,4 +1,4 @@
-import { SEARCH_NEW_ISSUE, ISSUES_FOUND, ActionTypes } from "./types";
+import { SEARCH_NEW_ISSUE, ISSUES_FOUND, ActionTypes, IIssues } from "./types";
 
 export function changeSearchIssue(newIssue: string): ActionTypes {
   if (newIssue.trim()) {
@@ -14,13 +14,11 @@ export function changeSearchIssue(newIssue: string): ActionTypes {
   }
 }
 
-export function issuesFound(): ActionTypes {
+export function issuesFound(arIssues: IIssues[]): ActionTypes {
+  console.log("found");
+  console.log(arIssues);
   return {
     type: ISSUES_FOUND,
-    payload: [
-      {
-        title: "Titulo de prueba",
-      },
-    ],
+    payload: arIssues,
   };
 }
