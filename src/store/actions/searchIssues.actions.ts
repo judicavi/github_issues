@@ -1,4 +1,11 @@
-import { SEARCH_NEW_ISSUE, ISSUES_FOUND, ActionTypes, IIssues } from "./types";
+import {
+  SEARCH_NEW_ISSUE,
+  ISSUES_FOUND,
+  SELECT_ISSUE,
+  ActionTypes,
+  IIssues,
+} from "./types";
+import history from "../../history";
 
 export function changeSearchIssue(newIssue: string): ActionTypes {
   if (newIssue.trim()) {
@@ -15,10 +22,17 @@ export function changeSearchIssue(newIssue: string): ActionTypes {
 }
 
 export function issuesFound(arIssues: IIssues[]): ActionTypes {
-  console.log("found");
-  console.log(arIssues);
   return {
     type: ISSUES_FOUND,
     payload: arIssues,
+  };
+}
+
+export function selectIssue(issueNumber: number): ActionTypes {
+  history.push("/show_issue");
+
+  return {
+    type: SELECT_ISSUE,
+    payload: issueNumber,
   };
 }

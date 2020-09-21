@@ -1,6 +1,7 @@
 import {
   SEARCH_NEW_ISSUE,
   ISSUES_FOUND,
+  SELECT_ISSUE,
   ActionTypes,
   IIssuesState,
 } from "../actions/types";
@@ -8,6 +9,7 @@ import {
 export const defaultState: IIssuesState = {
   isSearching: false,
   newIssue: "",
+  currentIssue: undefined,
   issues: [],
 };
 
@@ -28,6 +30,17 @@ export const issuesReducer = (
         ...state,
         isSearching: false,
         issues: action.payload,
+      };
+    }
+    case SELECT_ISSUE: {
+      // Get the issue's information
+      const currentIssue = state.issues.filter((issue) => {
+        return issue.number === action.payload;
+      });
+
+      return {
+        ...state,
+        currentIssue: currentIssue[0],
       };
     }
     default: {

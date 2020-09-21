@@ -9,6 +9,7 @@ import { IPropsSearchCmp, IDispatchSearchCmp } from "./types";
 const mapStateToProps = (state: IIssuesState): IPropsSearchCmp => {
   return {
     isSearching: state.isSearching,
+    arIssues: state.issues,
   };
 };
 
@@ -16,6 +17,7 @@ const matchDispatchToProps = (dispatch: Dispatch): IDispatchSearchCmp => {
   return bindActionCreators(
     {
       onChangeSearch: Actions.changeSearchIssue,
+      onSelectIssue: Actions.selectIssue,
     },
     dispatch
   );
