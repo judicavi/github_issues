@@ -7,11 +7,21 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
 export const HeaderCmp = (props: IHeader) => {
+  const onBackHandler = (event) => {
+    console.log("click back");
+
+    props.onBackSearch && props.onBackSearch();
+  };
+
   return (
     <AppBar>
       <Toolbar>
         {props.useBack ? (
-          <IconButton edge="end" color="inherit">
+          <IconButton
+            edge="end"
+            color="inherit"
+            onClick={(event) => onBackHandler(event)}
+          >
             <ArrowBackIos />
           </IconButton>
         ) : null}

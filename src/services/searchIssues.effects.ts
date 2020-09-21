@@ -3,10 +3,12 @@ import history from "../history";
 import { distinctUntilChanged, filter } from "rxjs/operators";
 import { StoreType } from "../store";
 import * as ActionsSearchIssues from "../store/actions/searchIssues.actions";
+import * as ActionsShowIssue from "../store/actions/showIssue.action";
 import { searchIssue } from "./searchIssues.services";
 
 export default function addSideEffect(store: StoreType) {
   listenToSearchIssue(store);
+  listenToGoSearch(store);
   //listenToSelectIssue(store);
 }
 
@@ -32,7 +34,23 @@ export function listenToSearchIssue(store: StoreType) {
     });
 }
 
-export function listenToSelectIssue(store: StoreType) {
+export function listenToGoSearch(store: StoreType) {
+  from(store)
+    .pipe(
+      distinctUntilChanged((prev, newVal) => prev.goSearch === newVal.goSearch),
+      filter((state) => state.goSearch)
+    )
+    .subscribe(async (state) => {
+      console.log("Redirigiendo al buscador");
+
+      history.push({
+        pathname: "/search_view",
+      });
+
+      store.dispatch(ActionsShowIssue.goSearchOk());
+    });
+}
+/*export function listenToSelectIssue(store: StoreType) {
   from(store)
     .pipe(
       distinctUntilChanged(
@@ -53,5 +71,4 @@ export function listenToSelectIssue(store: StoreType) {
       history.push({
         pathname: path,
       });
-    });
-}
+    });*/

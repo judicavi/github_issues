@@ -7,6 +7,7 @@ import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,14 +25,22 @@ export const Layout = () => {
     <div className={classes.root}>
       <CssBaseline />
       <Switch>
-        <Route exact path="/show_issue" component={IssuePage} />
-        <Route exact path="/search_view" component={SearchPage} />
-        <Redirect to="/show_issue" />
+        <Route path="/show_issue" component={IssuePage} />
+        <Route path="/search_view" component={SearchPage} />
+        <Redirect to="/search_view" />
       </Switch>
       <AppBar className={classes.footer}>
         <Toolbar>
-          <Typography variant="h6" color="inherit">
-            footer
+          <Typography color="inherit">
+            Written by{" "}
+            <Link href="https://www.linkedin.com/in/judicavi/" color="inherit">
+              Juan Diego Castaño Villada
+            </Link>{" "}
+            A.K.A{" "}
+            <Link href="https://github.com/judicavi" color="inherit">
+              @judicavi
+            </Link>
+            .
           </Typography>
         </Toolbar>
       </AppBar>

@@ -2,12 +2,15 @@ import {
   SEARCH_NEW_ISSUE,
   ISSUES_FOUND,
   SELECT_ISSUE,
+  BACK_SEARCH,
+  BACK_SEARCH_FINICH,
   ActionTypes,
   IIssuesState,
 } from "../actions/types";
 
 export const defaultState: IIssuesState = {
   isSearching: false,
+  goSearch: false,
   newIssue: "",
   currentIssue: undefined,
   issues: [],
@@ -41,6 +44,18 @@ export const issuesReducer = (
       return {
         ...state,
         currentIssue: currentIssue[0],
+      };
+    }
+    case BACK_SEARCH: {
+      return {
+        ...state,
+        goSearch: true,
+      };
+    }
+    case BACK_SEARCH_FINICH: {
+      return {
+        ...state,
+        goSearch: false,
       };
     }
     default: {
