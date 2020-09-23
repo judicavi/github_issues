@@ -25,9 +25,10 @@ export const Layout = () => {
     <div className={classes.root}>
       <CssBaseline />
       <Switch>
-        <Route path="/show_issue" component={IssuePage} />
-        <Route path="/search_view" component={SearchPage} />
-        <Redirect to="/search_view" />
+        <Route exact path="/search_view" component={SearchPage} />
+        <Route exact path="/" component={SearchPage} />
+        <Route exact path="/show_issue" component={IssuePage} />
+        <Route exact path="*" component={SearchPage} />
       </Switch>
       <AppBar className={classes.footer}>
         <Toolbar>

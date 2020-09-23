@@ -22,7 +22,7 @@ export const SearchPage = () => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <HeaderCmp title="Buscador" />
+      <HeaderCmp title="Searcher view" />
       <Container maxWidth="md" className={classes.conteiner}>
         <SearcherIssuesCmp />
       </Container>

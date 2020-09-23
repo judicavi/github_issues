@@ -2,7 +2,7 @@ export const SEARCH_NEW_ISSUE = "SEARCH_NEW_ISSUE";
 export const ISSUES_FOUND = "ISSUES_FOUND";
 export const SELECT_ISSUE = "SELECT_ISSUE";
 export const BACK_SEARCH = "BACK_SEARCH";
-export const BACK_SEARCH_FINICH = "BACK_SEARCH_FINICH";
+export const BACK_SEARCH_FINISH = "BACK_SEARCH_FINISH";
 
 interface SearchIssueAction {
   type: typeof SEARCH_NEW_ISSUE;
@@ -24,7 +24,7 @@ interface BackSearchAction {
 }
 
 interface BackSearchOKAction {
-  type: typeof BACK_SEARCH_FINICH;
+  type: typeof BACK_SEARCH_FINISH;
 }
 
 export type ActionTypes =
@@ -75,7 +75,7 @@ export interface IUserGit {
   /**
    * URL of picture user
    */
-  avarar_url: string;
+  avatar_url: string;
   /**
    * User nick name
    */

@@ -1,5 +1,5 @@
 import history from "../../history";
-import { BACK_SEARCH, BACK_SEARCH_FINICH, ActionTypes } from "./types";
+import { BACK_SEARCH, BACK_SEARCH_FINISH, ActionTypes } from "./types";
 
 export function onBackSearch(): ActionTypes {
   //history.push("/search_view");
@@ -11,6 +11,6 @@ export function onBackSearch(): ActionTypes {
 
 export function goSearchOk(): ActionTypes {
   return {
-    type: BACK_SEARCH_FINICH,
+    type: BACK_SEARCH_FINISH,
   };
 }

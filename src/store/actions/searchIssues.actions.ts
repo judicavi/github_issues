@@ -5,7 +5,6 @@ import {
   ActionTypes,
   IIssues,
 } from "./types";
-import history from "../../history";
 
 export function changeSearchIssue(newIssue: string): ActionTypes {
   if (newIssue.trim()) {
@@ -29,7 +28,7 @@ export function issuesFound(arIssues: IIssues[]): ActionTypes {
 }
 
 export function selectIssue(issueNumber: number): ActionTypes {
-  history.push("/show_issue");
+  console.log("Select issue");
 
   return {
     type: SELECT_ISSUE,

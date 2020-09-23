@@ -3,7 +3,7 @@ import {
   ISSUES_FOUND,
   SELECT_ISSUE,
   BACK_SEARCH,
-  BACK_SEARCH_FINICH,
+  BACK_SEARCH_FINISH,
   ActionTypes,
   IIssuesState,
 } from "../actions/types";
@@ -52,7 +52,7 @@ export const issuesReducer = (
         goSearch: true,
       };
     }
-    case BACK_SEARCH_FINICH: {
+    case BACK_SEARCH_FINISH: {
       return {
         ...state,
         goSearch: false,

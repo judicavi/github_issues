@@ -7,7 +7,7 @@ import { Layout } from "./pages/Layout";
 function App() {
   return (
     <Router history={history}>
-      <Route component={Layout} />
+      <Layout />
     </Router>
   );
 }

@@ -9,7 +9,7 @@ import { searchIssue } from "./searchIssues.services";
 export default function addSideEffect(store: StoreType) {
   listenToSearchIssue(store);
   listenToGoSearch(store);
-  //listenToSelectIssue(store);
+  listenToSelectIssue(store);
 }
 
 export function listenToSearchIssue(store: StoreType) {
@@ -23,9 +23,30 @@ export function listenToSearchIssue(store: StoreType) {
     .subscribe(async (state) => {
       const response = await searchIssue(state.newIssue);
       const arIssues = response.map((issue) => {
+        const user = issue.user
+          ? {
+              login: issue.user.login,
+              avatar_url: issue.user.avatar_url,
+            }
+          : undefined;
+
+        const labels = issue.labels
+          ? issue.labels.map((label) => {
+              return {
+                color: label.color,
+                name: label.name,
+              };
+            })
+          : [];
+
         const obIssue = {
           title: issue.title,
           number: issue.number,
+          body: issue.body,
+          state: issue.state,
+          created_at: issue.created_at,
+          user: user,
+          labels: labels,
         };
 
         return obIssue;
@@ -50,7 +71,8 @@ export function listenToGoSearch(store: StoreType) {
       store.dispatch(ActionsShowIssue.goSearchOk());
     });
 }
-/*export function listenToSelectIssue(store: StoreType) {
+
+export function listenToSelectIssue(store: StoreType) {
   from(store)
     .pipe(
       distinctUntilChanged(
@@ -63,12 +85,10 @@ export function listenToGoSearch(store: StoreType) {
       })
     )
     .subscribe(async (state) => {
-      console.log("Redirigiendo");
-      const path = state.currentIssue
-        ? "/issues/" + state.currentIssue.number
-        : "/search_view";
+      console.log("Redirigiendo a issue");
 
       history.push({
-        pathname: path,
+        pathname: "/show_issue",
       });
-    });*/
+    });
+}

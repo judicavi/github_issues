@@ -64,5 +64,5 @@ export type ISearchCmp = IPropsSearchCmp & IDispatchSearchCmp;
  * Interface used to define BodyCmp's props to show the issues content in issue view
  */
 export interface IPropsBody {
-  issueSelected: IIssues;
+  issueSelected?: IIssues;
 }

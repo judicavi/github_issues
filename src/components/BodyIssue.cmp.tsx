@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { IPropsBody } from "./types";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
@@ -50,6 +51,11 @@ const useStyles = makeStyles((theme) => ({
 export const BodyIssue = (props: IPropsBody) => {
   const classes = useStyles();
   const issueInfo = props.issueSelected;
+
+  if (!issueInfo) {
+    return <Redirect to={"/"} />;
+  }
+
   return (
     <React.Fragment>
       <Container maxWidth="md" className={classes.container}>
@@ -67,7 +73,7 @@ export const BodyIssue = (props: IPropsBody) => {
                 Opened by
                 <div className={classes.avatarCont}>
                   <img
-                    src={issueInfo.user?.avarar_url}
+                    src={issueInfo.user?.avatar_url}
                     alt=""
                     className={classes.avatar}
                   />
