@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Dispatch } from "redux";
 import { HeaderCmp } from "./Header.cmp";
-import * as Actions from "../store/actions/showIssue.action";
-import { IIssuesState } from "../store/actions/types";
+import * as Actions from "../../store/actions/showIssue.action";
+import { IIssuesState } from "../../store/actions/types";
 import { IPropsHeader, IDispatchHeader } from "./types";
 
 const mapStateToProps = (state: IIssuesState): IPropsHeader => {

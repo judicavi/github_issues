@@ -1,9 +1,9 @@
 import { from } from "rxjs";
-import history from "../history";
+import history from "../../history";
 import { distinctUntilChanged, filter } from "rxjs/operators";
-import { StoreType } from "../store";
-import * as ActionsSearchIssues from "../store/actions/searchIssues.actions";
-import * as ActionsShowIssue from "../store/actions/showIssue.action";
+import { StoreType } from "../../store";
+import * as ActionsSearchIssues from "../../store/actions/searchIssues.actions";
+import * as ActionsShowIssue from "../../store/actions/showIssue.action";
 import { searchIssue } from "./searchIssues.services";
 
 export default function addSideEffect(store: StoreType) {

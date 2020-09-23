@@ -1,9 +1,8 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { IPropsBody } from "./types";
-import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Paper, Typography } from "@material-ui/core";
+import { Container, Grid, Paper, Typography } from "@material-ui/core";
 import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({

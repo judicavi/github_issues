@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { BodyIssue } from "./BodyIssue.cmp";
-import { IIssuesState } from "../store/actions/types";
+import { IIssuesState } from "../../store/actions/types";
 import { IPropsBody } from "./types";
 
 const mapStateToProps = (state: IIssuesState): IPropsBody => {

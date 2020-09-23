@@ -1,4 +1,4 @@
-import searchIssuesEffects from "./searchIssues.effects";
+import searchIssuesEffects from "../components/searcherView/searchIssues.effects";
 
 export function addSideEffectsToStore(store) {
   const effects = [searchIssuesEffects];

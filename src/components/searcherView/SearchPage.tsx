@@ -1,6 +1,6 @@
 import React from "react";
-import SearcherIssuesCmp from "../components/SearcherIssues.container";
-import { HeaderCmp } from "../components/Header.cmp";
+import SearcherIssuesCmp from "./SearcherIssues.container";
+import { HeaderCmp } from "../shared/Header.cmp";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";

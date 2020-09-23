@@ -1,7 +1,7 @@
 import React from "react";
-import { Switch, Redirect, Route } from "react-router-dom";
-import { SearchPage } from "./SearchPage";
-import { IssuePage } from "./IssuePage";
+import { Switch, Route } from "react-router-dom";
+import { SearchPage } from "../searcherView/SearchPage";
+import { IssuePage } from "../issueView/IssuePage";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
