@@ -1,5 +1,6 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Router } from "react-router-dom";
+import history from "../../history";
 import { SearchPage } from "../searcherView/SearchPage";
 import { IssuePage } from "../issueView/IssuePage";
 import { makeStyles } from "@material-ui/core/styles";
@@ -23,28 +24,33 @@ export const Layout = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <CssBaseline />
-      <Switch>
-        <Route exact path="/search_view" component={SearchPage} />
-        <Route exact path="/" component={SearchPage} />
-        <Route exact path="/show_issue" component={IssuePage} />
-        <Route exact path="*" component={SearchPage} />
-      </Switch>
-      <AppBar className={classes.footer}>
-        <Toolbar>
-          <Typography color="inherit">
-            Written by{" "}
-            <Link href="https://www.linkedin.com/in/judicavi/" color="inherit">
-              Juan Diego Castaño Villada
-            </Link>{" "}
-            A.K.A{" "}
-            <Link href="https://github.com/judicavi" color="inherit">
-              @judicavi
-            </Link>
-            .
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Router history={history}>
+        <CssBaseline />
+        <Switch>
+          <Route exact path="/search_view" component={SearchPage} />
+          <Route exact path="/" component={SearchPage} />
+          <Route exact path="/show_issue" component={IssuePage} />
+          <Route exact path="*" component={SearchPage} />
+        </Switch>
+        <AppBar className={classes.footer}>
+          <Toolbar>
+            <Typography color="inherit">
+              Written by{" "}
+              <Link
+                href="https://www.linkedin.com/in/judicavi/"
+                color="inherit"
+              >
+                Juan Diego Castaño Villada
+              </Link>{" "}
+              A.K.A{" "}
+              <Link href="https://github.com/judicavi" color="inherit">
+                @judicavi
+              </Link>
+              .
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </Router>
     </div>
   );
 };

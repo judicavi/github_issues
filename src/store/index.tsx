@@ -4,9 +4,12 @@ import { IIssuesState } from "./actions/types";
 import { ObservableInput } from "rxjs";
 
 export function NewStore(
-  reducer
+  reducer,
+  initialState?
 ): Store<IIssuesState> & ObservableInput<IIssuesState> {
-  return createStore(reducer, composeWithDevTools());
+  return initialState == null
+    ? createStore(reducer, composeWithDevTools())
+    : createStore(reducer, initialState, composeWithDevTools());
 }
 
 export type StoreType = ReturnType<typeof NewStore>;

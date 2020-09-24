@@ -9,8 +9,7 @@ import { IPropsHeader, IDispatchHeader } from "./types";
 const mapStateToProps = (state: IIssuesState): IPropsHeader => {
   return {
     title: "Issue",
-    issueId: 123456,
-    //issueId: state.currentIssue?.number
+    issueId: state.currentIssue?.number,
     useBack: true,
   };
 };

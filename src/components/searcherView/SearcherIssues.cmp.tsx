@@ -60,7 +60,7 @@ export const SearcherIssuesCmp = (props: ISearchCmp) => {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton>
+                  <IconButton className={"btn-search"}>
                     <Search />
                   </IconButton>
                 </InputAdornment>
@@ -79,6 +79,7 @@ export const SearcherIssuesCmp = (props: ISearchCmp) => {
                       button
                       key={issueInfo.number}
                       selected={issueSelected === issueInfo.number}
+                      className={"list-item"}
                       onClick={(event) =>
                         onHandleSelect(event, issueInfo.number)
                       }

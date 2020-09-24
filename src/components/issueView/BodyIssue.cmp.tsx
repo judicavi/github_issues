@@ -58,7 +58,7 @@ export const BodyIssue = (props: IPropsBody) => {
   return (
     <React.Fragment>
       <Container maxWidth="md" className={classes.container}>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} className={"body-cmp"}>
           <Typography variant="h6" color="inherit" className={classes.title}>
             {issueInfo.title}
           </Typography>

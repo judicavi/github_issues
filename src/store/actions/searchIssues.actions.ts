@@ -28,8 +28,6 @@ export function issuesFound(arIssues: IIssues[]): ActionTypes {
 }
 
 export function selectIssue(issueNumber: number): ActionTypes {
-  console.log("Select issue");
-
   return {
     type: SELECT_ISSUE,
     payload: issueNumber,

@@ -11,7 +11,7 @@ export const HeaderCmp = (props: IHeader) => {
   };
 
   return (
-    <AppBar>
+    <AppBar className={"header-cmp"}>
       <Toolbar>
         {props.useBack ? (
           <IconButton
