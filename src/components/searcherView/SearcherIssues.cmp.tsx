@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { ISearchCmp } from "./types";
 import {
   Grid,
@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Search from "@material-ui/icons/Search";
+import debounce from "lodash.debounce";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -28,30 +29,36 @@ const useStyles = makeStyles((theme) => ({
 export const SearcherIssuesCmp = (props: ISearchCmp) => {
   const classes = useStyles();
   const [issueSelected, setIssueSelected] = useState(0);
+  const [issueToSearch, setIssueToSearch] = useState("");
 
-  let nuTimeOut: any = null;
-
-  const onHandleChange = (event) => {
-    clearTimeout(nuTimeOut);
-    let newIssue = event.target.value;
-
-    //wait a few seconds to start the search.
-    //That way it won't search with any changes to the text, only when the user finishes typing
-    nuTimeOut = setTimeout(() => {
+  const startSearchIssue = useCallback(
+    debounce((newIssue) => {
+      setIssueToSearch(newIssue);
       props.onChangeSearch(newIssue);
-    }, 1000);
-  };
+    }, 1000),
+    [issueToSearch]
+  );
 
-  const onHandleSelect = (event, issueNumber) => {
-    setIssueSelected(issueNumber);
+  const onHandleChange = useCallback(
+    (event) => {
+      startSearchIssue(event.target.value);
+    },
+    [issueToSearch]
+  );
 
-    props.onSelectIssue(issueNumber);
-  };
+  const onHandleSelect = useCallback(
+    (event, issueNumber) => {
+      setIssueSelected(issueNumber);
+
+      props.onSelectIssue(issueNumber);
+    },
+    [issueSelected]
+  );
 
   return (
     <React.Fragment>
-      <Grid container className={classes.container} spacing={2}>
-        <Grid item xs={12}>
+      <Grid container={true} className={classes.container} spacing={2}>
+        <Grid item={true} xs={12}>
           <TextField
             id="outlined-basic"
             label="Search issues"
@@ -70,13 +77,13 @@ export const SearcherIssuesCmp = (props: ISearchCmp) => {
         </Grid>
 
         {props.arIssues.length && props.arIssues.length > 0 ? (
-          <Grid item className={classes.listCont}>
+          <Grid item={true} className={classes.listCont}>
             <Paper>
               <List component="nav" aria-label="contacts">
                 {props.arIssues.map((issueInfo) => {
                   return (
                     <ListItem
-                      button
+                      button={true}
                       key={issueInfo.number}
                       selected={issueSelected === issueInfo.number}
                       className={"list-item"}

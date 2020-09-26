@@ -58,11 +58,11 @@ export const BodyIssue = (props: IPropsBody) => {
   return (
     <React.Fragment>
       <Container maxWidth="md" className={classes.container}>
-        <Grid container spacing={2} className={"body-cmp"}>
+        <Grid container={true} spacing={2} className={"body-cmp"}>
           <Typography variant="h6" color="inherit" className={classes.title}>
             {issueInfo.title}
           </Typography>
-          <Grid item className={classes.topCont}>
+          <Grid item={true} className={classes.topCont}>
             <Paper className={classes.paper} style={{ marginRight: "16px" }}>
               <div>State: {issueInfo.state}</div>
               <div>
@@ -107,7 +107,7 @@ export const BodyIssue = (props: IPropsBody) => {
               </div>
             </Paper>
           </Grid>
-          <Grid item>
+          <Grid item={true}>
             <Paper className={classes.paper}>
               <div>{issueInfo.body}</div>
             </Paper>

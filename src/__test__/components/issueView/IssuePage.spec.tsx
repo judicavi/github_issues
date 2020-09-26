@@ -12,7 +12,7 @@ configure({ adapter: new Adapter() });
 
 describe("Issue page test", () => {
   test("Should render principal issue page", () => {
-    let initialState = defaultState;
+    const initialState = defaultState;
     initialState.currentIssue = normalIssue;
 
     const store = NewStore(issuesReducer, initialState);

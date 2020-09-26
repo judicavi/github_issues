@@ -45,8 +45,8 @@ export function listenToSearchIssue(store: StoreType) {
           body: issue.body,
           state: issue.state,
           created_at: issue.created_at,
-          user: user,
-          labels: labels,
+          user,
+          labels,
         };
 
         return obIssue;
@@ -62,8 +62,6 @@ export function listenToGoSearch(store: StoreType) {
       filter((state) => state.goSearch)
     )
     .subscribe(async (state) => {
-      console.log("Redirigiendo al buscador");
-
       history.push({
         pathname: "/search_view",
       });
@@ -85,8 +83,6 @@ export function listenToSelectIssue(store: StoreType) {
       })
     )
     .subscribe(async (state) => {
-      console.log("Redirigiendo a issue");
-
       history.push({
         pathname: "/show_issue",
       });

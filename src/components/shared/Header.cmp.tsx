@@ -5,9 +5,9 @@ import ArrowBackIos from "@material-ui/icons/ArrowBackIos";
 
 export const HeaderCmp = (props: IHeader) => {
   const onBackHandler = (event) => {
-    console.log("click back");
-
-    props.onBackSearch && props.onBackSearch();
+    if (props.onBackSearch) {
+      props.onBackSearch();
+    }
   };
 
   return (

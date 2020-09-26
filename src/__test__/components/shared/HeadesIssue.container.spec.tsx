@@ -12,7 +12,7 @@ configure({ adapter: new Adapter() });
 
 describe("Header component test", () => {
   test("Should render Header component", () => {
-    let initialState = defaultState;
+    const initialState = defaultState;
     initialState.issues = [normalIssue];
 
     const store = NewStore(issuesReducer, initialState);

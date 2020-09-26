@@ -31,7 +31,7 @@ describe("Layout page test", () => {
   });
 
   test("Should render issue view page", () => {
-    let initialState = defaultState;
+    const initialState = defaultState;
     initialState.currentIssue = normalIssue;
 
     const store = NewStore(issuesReducer, initialState);

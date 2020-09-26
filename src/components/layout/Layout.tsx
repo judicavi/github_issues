@@ -27,10 +27,10 @@ export const Layout = () => {
       <Router history={history}>
         <CssBaseline />
         <Switch>
-          <Route exact path="/search_view" component={SearchPage} />
-          <Route exact path="/" component={SearchPage} />
-          <Route exact path="/show_issue" component={IssuePage} />
-          <Route exact path="*" component={SearchPage} />
+          <Route exact={true} path="/search_view" component={SearchPage} />
+          <Route exact={true} path="/" component={SearchPage} />
+          <Route exact={true} path="/show_issue" component={IssuePage} />
+          <Route exact={true} path="*" component={SearchPage} />
         </Switch>
         <AppBar className={classes.footer}>
           <Toolbar>

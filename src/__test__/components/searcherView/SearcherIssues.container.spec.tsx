@@ -12,7 +12,7 @@ configure({ adapter: new Adapter() });
 
 describe("Searcher issues component test", () => {
   test("Should render SearcherIssues component and list one issue", () => {
-    let initialState = defaultState;
+    const initialState = defaultState;
     initialState.issues = [normalIssue];
 
     const store = NewStore(issuesReducer, initialState);
@@ -31,7 +31,7 @@ describe("Searcher issues component test", () => {
   });
 
   test("Select one issue in result list", () => {
-    let initialState = defaultState;
+    const initialState = defaultState;
     initialState.issues = [normalIssue];
 
     const store = NewStore(issuesReducer, initialState);

@@ -12,7 +12,7 @@ configure({ adapter: new Adapter() });
 
 describe("Body issues component test", () => {
   test("Should render BodyIssue component", () => {
-    let initialState = defaultState;
+    const initialState = defaultState;
     initialState.currentIssue = normalIssue;
 
     const store = NewStore(issuesReducer, initialState);

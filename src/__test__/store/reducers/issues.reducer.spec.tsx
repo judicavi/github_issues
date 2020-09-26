@@ -34,7 +34,7 @@ describe("Reducer test", () => {
   });
 
   test("Should handle SELECT_ISSUE", () => {
-    let initialState = defaultState;
+    const initialState = defaultState;
 
     initialState.issues = [normalIssue];
 
